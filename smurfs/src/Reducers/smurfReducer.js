@@ -1,14 +1,20 @@
-import { ADD_SMURF } from '../Actions';
+import { SMURF_FETCH_START, SMURF_FETCH_SUCCESS, SMURF_FETCH_FAILURE, ADD_SMURF } from '../Actions';
 
 export const initialState = {
-    smurfs: []
+  smurfs: [],
+  error: '',
+  isFetching: false
 }
 
 export const smurfReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case ADD_SMURF:
-            return state;
-            default:
-                return state;
-    }
+  switch (action.type) {
+    case SMURF_FETCH_START:
+      return { ...state, error: '', isFetching: true };
+    case SMURF_FETCH_SUCCESS:
+      return { ...state, smurfs: action.payload, error: '', isFetching: false }
+    case SMURF_FETCH_FAILURE:
+      return { ...state, error: action.payload, isFetching: false }
+    default:
+      return state;
+  }
 }

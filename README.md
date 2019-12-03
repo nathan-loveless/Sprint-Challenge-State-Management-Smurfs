@@ -23,10 +23,32 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+  
+      It allows us to share data we store in the context across all components instead of prop drilling
+      
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+      Actions- specific things that are done to the data stored in the store and update it in the UI
+      Reducers- The state management responsible for changing the data in the store and re-rendering the UI
+      Store- the container that houses our state data across the application that is used in state management
+      
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+      Application state is considered the global to the application, any component can access it.  Anytime you need to share data across
+      components use application state.
+    
+      Component state is where component level data is available only to the particular component that creates the data, many times seen
+      as [state, setState] = useState([]) inside components.  If the data is specific to the component only, use the component state.
+    
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+      redux-thunk allows you to return a function instead of an object, it allows ansynchronous actions by intercepting and call an api
+      function
+      
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+      Redux, it just seems to logical that a store contains the state of an application.  While it is similar to the Context API, the
+      fact that they called it createStore/Store just makes so much more sense to me than using Context API.
 
 ## Project Set Up
 
